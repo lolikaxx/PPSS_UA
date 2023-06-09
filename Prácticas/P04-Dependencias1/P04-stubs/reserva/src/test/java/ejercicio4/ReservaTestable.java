@@ -19,5 +19,12 @@ public class ReservaTestable extends Reserva{
         this.validUser =  validUser;
     }
 
-
+    @Override
+    public boolean compruebaPermisos(String login, String password, Usuario tipoUsu) {
+        if((login == validLogin) && ( password == validPassword) && (tipoUsu == validUser))
+            return true;
+        else {
+            return false;
+        }
+    }
 }

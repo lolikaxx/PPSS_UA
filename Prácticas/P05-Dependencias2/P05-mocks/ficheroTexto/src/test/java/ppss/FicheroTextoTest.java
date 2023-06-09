@@ -55,6 +55,8 @@ class FicheroTextoTest {
         assertDoesNotThrow(()-> fileReaderMock.close());
         EasyMock.expectLastCall().andThrow(new IOException());
 
+        //assertDoesNotThrow(()->EasyMock.expect(fileReaderMock.close()).andReturn(new IOException()));
+
         ctrl.replay();
         FicheroException exceptionObtenida = assertThrows(FicheroException.class, ()->ficheroTextoTestable.contarCaracteres(nombreFichero));
         assertEquals(mensajeExceptionEsperado,exceptionObtenida.getMessage());
